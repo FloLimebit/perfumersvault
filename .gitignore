@@ -1,0 +1,12 @@
+.htaccess
+request.log
+tmp/
+logs/
+uploads/
+batches/
+push.sh
+inc/config.php
+*.swp
+t.php
+tests/
+pages/searchTGSC.php
