@@ -3,7 +3,7 @@
 # Perfumers Vault Pro Dockerfile
 # 
 # =============================================================================
-FROM quay.io/centos/centos:stream9
+FROM --platform=linux/arm64 quay.io/centos/centos:stream9
 
 LABEL co.uk.globaldyne.component="perfumers-vault-container"  description="Perfumers Vault container image"  summary="Perfumers Vault container image"  version="PRO"  io.k8s.description="Init Container for Perfumers Vault PRO"  io.k8s.display-name="Perfumers Vault Pro Container"  io.openshift.tags="pvault,jb,perfumer,vault,jbpvault,PRO"  name="globaldyne/pvault"  maintainer="John Belekios"
 
@@ -30,7 +30,7 @@ RUN dnf --setopt=tsflags=nodocs -y install \
 
 
 RUN python3 -m pip install --upgrade pip \
-        && python3 -m pip install --no-warn-script-location --upgrade brother_ql
+	&& python3 -m pip install --no-warn-script-location --upgrade brother_ql
 
 RUN dnf clean all && rm -rf /var/cache/yum/*
 
